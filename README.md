@@ -103,21 +103,21 @@ Two JSON configuration files define the orchestration and job scheduling:
 | `Job_silver_processing.json` | Configuration for the Silver-to-Gold processing job.         |
 | `wf_silver_gold.json`        | Workflow for automating the entire Silver and Gold pipeline. |
 
-📸 *Screenshots:*
 
-- `wf_silver_gold_1.png`
-- `wf_silver_gold_tasks_2.png`
+![wf_silver__gold_tasks_2.png](Folders/screenshots/wf_silver_gold__tasks_2.png)
+
+![wf_silver_gold_1.png](Folders/screenshots/wf_silver_gold_1.png)
+
 
 ---
 
 ## Security and Governance with Unity Catalog
 
-[`07_uc_grants.ipynb`](notebooks/07_uc_grants.ipynb) applies the **Unity Catalog** permission model:
+*07_uc_grants.ipynb* applies the **Unity Catalog** permission model:
 
 - Grants selective `USAGE` and `SELECT` privileges to specific users.
 - Revokes unnecessary privileges for auditors to comply with governance principles.
 
-📸 *Screenshot:* `catalog_and_schemas_2.png`
 
 ---
 
@@ -146,3 +146,5 @@ The final step was building an interactive **Databricks SQL Dashboard**, `Fraud_
 - **Microsoft Entra ID**
 - **JSON for Job Configuration**
 
+##Thank you for reaching here, I hope that something from this repository may help you.
+Mail : gianfrancocipollari@gmail.com 
