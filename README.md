@@ -11,7 +11,8 @@ The goal is to demonstrate an end-to-end data engineering and analytics process 
 
 The project begins with the creation of an **Azure Subscription** and a **Resource Group**, within which identity management and access control were configured using **Microsoft Entra ID**. In this environment, users and groups were established to define different levels of access. The `fraud_analyst` group was granted full privileges over the Gold datasets, while the `auditor` group was limited to read-only permissions. All roles and access levels were managed and granted through Unity Catalog by executing SQL commands such as `GRANT` and `REVOKE`, ensuring a secure and organized governance model for data usage.
 
-📸 *Screenshot:* `access_groups.png`
+![access groups](Folders/screenshots/access_groups.png)
+
 
 ---
 
