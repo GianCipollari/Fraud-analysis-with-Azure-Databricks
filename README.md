@@ -46,7 +46,7 @@ The project follows the **Medallion Architecture**, a best practice in Databrick
 | **Silver**  | Filtered and enriched data with normalized columns.    | 02_bronze_to_silver |
 | **Gold**    | Final analytical tables for dashboards and monitoring. | 05_gold_rules.ipynb           |
 
- *Screenshot:* (to be added once `architecture.png` is finalized)
+ ![architecture.png](architecture.png)
 
 
 
