@@ -90,7 +90,6 @@ This includes:
 
 06\_analise.sql.ipynb is used to automatically imrpove the performance of the queries and cost optimization.
 
-📸 *Screenshot:* `job_silver_processing_1.png`
 
 ---
 
@@ -146,5 +145,5 @@ The final step was building an interactive **Databricks SQL Dashboard**, `Fraud_
 - **Microsoft Entra ID**
 - **JSON for Job Configuration**
 
-##Thank you for reaching here, I hope that something from this repository may help you.
+Thank you for reaching here, I hope that something from this repository may help you.
 Mail : gianfrancocipollari@gmail.com 
