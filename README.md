@@ -31,8 +31,9 @@ ref/
 
 Each layer represents a different stage in the data refinement process. The **ref/** layer serves as a reference schema used to store lookup or auxiliary tables that can be joined with transactional data in downstream layers.
 
-📸 *Screenshot:* `containers.png`\
-📸 *Screenshot:* `storage_accout.png`
+![containers.png](Folders/screenshots/containers.png)
+
+![storage_accout.png](Folders/screenshots/storage_accout.png)
 
 ##  Data Architecture (Medallion Model)
 
@@ -41,11 +42,11 @@ The project follows the **Medallion Architecture**, a best practice in Databrick
 | Layer       | Description                                            | Notebook                                                           |
 | ----------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
 | **Landing** | Raw files ingested from transactional sources.         | -                                                                  |
-| **Bronze**  | Basic cleaning and schema alignment.                   | [`01_ingest_bronze.ipynb`](notebooks/01_ingest_bronze.ipynb)       |
-| **Silver**  | Filtered and enriched data with normalized columns.    | [`02_bronze_to_silver.ipynb`](notebooks/02_bronze_to_silver.ipynb) |
-| **Gold**    | Final analytical tables for dashboards and monitoring. | [`05_gold_rules.ipynb`](notebooks/05_gold_rules.ipynb)             |
+| **Bronze**  | Basic cleaning and schema alignment.                   | 01_ingest_bronze.ipynb       |
+| **Silver**  | Filtered and enriched data with normalized columns.    | 02_bronze_to_silver |
+| **Gold**    | Final analytical tables for dashboards and monitoring. | 05_gold_rules.ipynb           |
 
-📸 *Screenshot:* (to be added once `architecture.png` is finalized)
+ *Screenshot:* (to be added once `architecture.png` is finalized)
 
 
 
@@ -53,7 +54,7 @@ The project follows the **Medallion Architecture**, a best practice in Databrick
 
 ### 1. Ingestion and Bronze Layer
 
-The notebook [`01_ingest_bronze.ipynb`](notebooks/01_ingest_bronze.ipynb) reads raw transaction files from `landing/` and writes them into the **Bronze** Delta tables.\
+The notebook *01_ingest_bronze.ipynb* reads raw transaction files from `landing/` and writes them into the **Bronze** Delta tables.\
 This includes:
 
 - Loading CSVs from ADLS.
@@ -64,29 +65,28 @@ This includes:
 
 ### 2. Silver Layer Processing
 
-[`02_bronze_to_silver.ipynb`](notebooks/02_bronze_to_silver.ipynb) performs data validation and cleaning:
+*02_bronze_to_silver.ipynb* performs data validation and cleaning:
 
 - Removes nulls and invalid amounts.
 - Normalizes categorical fields (country, merchant, currency).
 - Saves clean data to `finance_catalog.silver.transactions`.
 
-📸 *Screenshot:* `landing.png`
 
 ---
 
 ### 3. Stream Ingestion Simulation
 
-[`03_ingest_stream.ipynb`](notebooks/03_ingest_stream.ipynb) demonstrates **streaming ingestion** using small CSV partitions from the `data/transactions_daily` folder to simulate incremental updates. The ingestion process leverages the **Databricks Autoloader**, which automatically detects new files arriving in the source directory and loads them efficiently into Delta tables. This allows the pipeline to handle near real-time data updates with scalability and minimal latency.
+*03_ingest_stream.ipynb* demonstrates **streaming ingestion** using small CSV partitions from the `data/transactions_daily` folder to simulate incremental updates. The ingestion process leverages the **Databricks Autoloader**, which automatically detects new files arriving in the source directory and loads them efficiently into Delta tables. This allows the pipeline to handle near real-time data updates with scalability and minimal latency.
 
-📸 *Screenshot:* `autoloader.png`
+![landing.png](Folders/screenshots/landing.png)
 
 ---
 
 ### 4. Silver-to-Gold Transformation
 
-[`04_silver_processing.py.ipynb`](notebooks/04_silver_processing.py.ipynb) aggregates and enriches transactions for analysis.
+*04_silver_processing.py.ipynb* aggregates and enriches transactions for analysis.
 
-[`05_gold_rules.ipynb`](notebooks/05_gold_rules.ipynb) applies **business rules** to detect potential fraud based on thresholds, unusual locations, and transaction frequency.
+*05_gold_rules.ipynb* applies business rules to detect potential fraud based on thresholds, unusual locations, and transaction frequency.
 
 06\_analise.sql.ipynb is used to automatically imrpove the performance of the queries and cost optimization.
 
@@ -131,7 +131,7 @@ The final step was building an interactive **Databricks SQL Dashboard**, `Fraud_
 - **Top 10 clients by risk score**
 - **Alerts per day and per month**
 
-📸 *Screenshot:* `dashboard.png`
+![dashboard.png](Folders/screenshots/dashboard.png)
 
 ---
 
